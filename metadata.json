@@ -1,0 +1,5 @@
+{
+  "name": "Remix: MemberPro - 积分与余额管理系统",
+  "description": "一个功能齐全的会员管理系统，支持会员注册（姓名、电话、地址）、余额充值、消费扣款以及积分累计与兑换，并集成了AI会员洞察分析。",
+  "requestFramePermissions": []
+}
