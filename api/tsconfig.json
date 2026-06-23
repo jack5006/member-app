@@ -1,0 +1,10 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "allowImportingTsExtensions": false,
+    "noEmit": false,
+    "outDir": "../.vercel/output/functions"
+  },
+  "include": ["./**/*.ts"]
+}

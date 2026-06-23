@@ -666,6 +666,37 @@ const App: React.FC = () => {
               </div>
             </div>
 
+            {/* AI Insights Section */}
+            <div className="mb-8 bg-gradient-to-r from-violet-50 to-indigo-50 p-5 rounded-2xl border border-indigo-100 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 animate-fade-in">
+              <div className="flex-1">
+                <h3 className="text-xs font-bold text-indigo-900 mb-1.5 flex items-center gap-1.5 uppercase tracking-wider">
+                  <span className="text-indigo-600 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="m5 3 1 2.5L8.5 6 6 7 5 9.5 4 7 1.5 6 4 5.5z"/><path d="m19 17 1 2.5 2.5.5-2.5 1-1 2.5-1-2.5-2.5-1 2.5-1z"/></svg>
+                  </span>
+                  {t.aiInsight}
+                </h3>
+                <div className="text-xs text-indigo-950 font-medium leading-relaxed">
+                  {isLoadingInsight ? (
+                    <span className="flex items-center gap-2 text-indigo-500 font-semibold">
+                      <span className="animate-spin h-3.5 w-3.5 border-2 border-indigo-500 border-t-transparent rounded-full"></span>
+                      {t.analyzing}
+                    </span>
+                  ) : (
+                    aiInsight || (lang === 'zh' ? "点击右侧按钮生成针对该会员的 AI 专属运营与营销建议" : "Click the button on the right to generate customized AI operations and marketing suggestions.")
+                  )}
+                </div>
+              </div>
+              {!isLoadingInsight && (
+                <button
+                  onClick={() => handleGetInsight(selectedMember)}
+                  className="bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow-sm shrink-0 flex items-center gap-1.5 cursor-pointer"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+                  {lang === 'zh' ? '获取 AI 建议' : 'Get AI Advice'}
+                </button>
+              )}
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-6">
                 <h3 className="text-lg font-bold">{t.quickTransaction}</h3>

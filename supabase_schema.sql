@@ -34,3 +34,8 @@ CREATE TABLE IF NOT EXISTS transactions (
 CREATE INDEX IF NOT EXISTS idx_members_phone ON members(phone);
 CREATE INDEX IF NOT EXISTS idx_transactions_member_id ON transactions(member_id);
 CREATE INDEX IF NOT EXISTS idx_transactions_timestamp ON transactions(timestamp DESC);
+
+-- Disable Row Level Security (RLS) so that the backend can perform queries using the public API key
+ALTER TABLE members DISABLE ROW LEVEL SECURITY;
+ALTER TABLE transactions DISABLE ROW LEVEL SECURITY;
+
